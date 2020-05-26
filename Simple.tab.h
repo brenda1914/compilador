@@ -69,11 +69,11 @@ extern int yydebug;
 #line 57 "Simple.y" /* yacc.c:1909  */
 union semrec
 {
-#line 57 "Simple.y" /* yacc.c:1909  */
-			  
-	int 	 intval;		 
-	char 	 *id;		      
-	struct lbs *lbls;	      
+#line 58 "Simple.y" /* yacc.c:1909  */
+
+ int	intval;	/* Integer values*/
+ char	*id;	/* Identifiers*/
+ struct lbs *lbls;	/* For backpatching*/
 
 #line 79 "Simple.tab.h" /* yacc.c:1909  */
 };
