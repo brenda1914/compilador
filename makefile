@@ -1,23 +1,17 @@
-all: Simple Simple.tab.o lex.yy.o
+all: compilar
+Simple: Simple.y Simple.lex 
+	bison -dv Simple.y
+	gcc -c Simple.tab.c
+	flex Simple.lex
+	gcc -c lex.yy.c
 	gcc -o Simple Simple.tab.o lex.yy.o -lm
 
-Simple.tab.o: Simple.tab.c
-	gcc -c Simple.tab.c
-
-Simple.tab.c: Simple.y
-	bison -d Simple.y
-
-lex.yy.o: lex.yy.c
-	gcc -c lex.yy.c
-
-lex.yy.c: Simple.lex
-	flex Simple.lex
-
-clean:
-	rm *.tab.c
-	rm *.tab.h
-	rm *.yy.c
-	rm *.o
-
-try: Simple test_simple
+compilar:
 	./Simple test_simple
+
+clean: 
+	rm lex.yy.c
+	rm Simple.tab.c
+	rm Simple.tab.h
+	
+	
